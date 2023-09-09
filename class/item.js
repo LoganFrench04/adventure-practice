@@ -1,7 +1,20 @@
-class Item {
-  // Item Class: Item should have name and description attributes
+const { Player } = require("./player");
+const { Room } = require("./room")
 
-  // Your code here
+class Item {
+  constructor(name, description) {
+    this.name = name;
+    this.description = description
+  }
+  getItemByName(name) {
+
+  }
+  takeItem() {
+
+  }
+  dropItem() {
+
+  }
 }
 
 module.exports = {

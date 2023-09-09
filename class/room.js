@@ -1,3 +1,5 @@
+const { Item } = require("./item")
+
 class Room {
 
     constructor(name, description) {
@@ -44,13 +46,21 @@ class Room {
     }
 
     getItemByName(name) {
-        // Retrieves an item from a room by item name
-
-        // Your code here
+        if (this.items[0].name === name) {
+            return this.items[0]
+        }
     }
 
 }
 
 module.exports = {
-  Room,
+    Room,
 };
+
+let item = new Item("rock", "just a simple rock");
+let room = new Room("Test Room", "A test room");
+
+room.items.push(item);
+console.log(room.items.length)//.to.equal(1);
+
+console.log(room.getItemByName("rock"))//.to.equal(item);
