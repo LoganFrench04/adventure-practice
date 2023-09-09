@@ -4,7 +4,7 @@ const { Food } = require('./food');
 
 class World {
     constructor() {
-        this.rooms = {};
+        this.rooms = [];
     }
 
     loadWorld(worldData) {
@@ -24,7 +24,7 @@ class World {
 
         // Connect rooms by ID
         // Note that all rooms must be created before they can be connected
-        for (let i = 0 ; i < roomList.length ; i++) {
+        for (let i = 0 ; i < itemList.length ; i++) {
 
             let roomID = roomList[i].id;
             let roomConnections = roomList[i].exits;
@@ -44,7 +44,12 @@ class World {
         // Your code here
     }
 }
+// let world = new World();
+// world.loadWorld(worldData);
 
+// room = world.rooms[1];
+// roomItems = room.items;
+// console.log(roomItems[0].name)//.to.equal('rock')
 module.exports = {
   World,
 };

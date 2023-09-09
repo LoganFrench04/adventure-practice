@@ -1,5 +1,6 @@
 const { Food } = require('./food');
 const { Room } = require('./room');
+const { Item } = require("./item")
 
 
 
@@ -37,21 +38,27 @@ class Player {
     }
 
     takeItem(itemName) {
-        if (Room.items[0].name === itemName) {
-            this.items.push(Room.items[0])
-        }
+       
+        if(this.currentRoom.items[0].name === itemName) {
+            this.items.push(this.currentRoom.items[0]) 
+            this.currentRoom.items.splice(this.currentRoom.items.indexOf(this.currentRoom.items[0]),1)
+                }
     }
 
     dropItem(itemName) {
-        // Drops an item the player is holding into their current room
-
-        // Your code here
+    if(this.items[0].name === itemName){
+        this.currentRoom.items.push(this.items[0])
+        this.items.splice(this.items.indexOf(this.items[0]),1)
+    }
     }
 
     eatItem(itemName) {
-        // Allow the player to eat food items, but not non-food items
-
-        // Your code here
+        if(this.items[0] instanceof Food){
+            if(this.items[0].name === itemName){
+                this.items.splice(this.items.indexOf(this.items[0]),1)
+        }
+    
+     }
     }
 
     getItemByName(name) {
@@ -61,17 +68,6 @@ class Player {
     }
 }
 
-
-room.items.push(item);
-console.log(room.items.length)//.to.equal(1);
-console.log(player.items.length)//.to.equal(0);
-
-player.takeItem("rock");
-
-// expect(room.items.length).to.equal(0);
-console.log(player.items.length)//.to.equal(1);
-
-console.log(player.getItemByName("rock"))//.to.equal(item);
 
 module.exports = {
     Player,

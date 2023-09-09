@@ -6,7 +6,7 @@ class Item {
     this.name = name;
     this.description = description
   }
-  getItemByName(name) {
+  getItemByName() {
 
   }
   takeItem() {

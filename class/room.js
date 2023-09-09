@@ -57,10 +57,4 @@ module.exports = {
     Room,
 };
 
-let item = new Item("rock", "just a simple rock");
-let room = new Room("Test Room", "A test room");
 
-room.items.push(item);
-console.log(room.items.length)//.to.equal(1);
-
-console.log(room.getItemByName("rock"))//.to.equal(item);
